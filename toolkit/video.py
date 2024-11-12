@@ -6,13 +6,16 @@ class ProcessVideo(ProcessMedia):
     def __init__(self, path):
         super().__init__(path)
 
-    def extract_audio(self) -> bool:
-
+    def extract_audio(self):
         ffmpeg.input(self._source_path).output(
-            self._output_path, 
-            acodec="libshine"
+            self._output_path, acodec="libshine"
         ).run(cmd="./ffmpeg")
-        return True
+
+    def convert_to_x264(self):
+        pass
+
+    def convert_to_x265(self):
+        pass
 
     def compress_video_to_720(self):
         pass
