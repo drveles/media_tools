@@ -1,3 +1,17 @@
+# My ignores 
+*.mp4
+*.mp3
+*.mkv
+*.jpeg
+*.jpg
+*.png
+*.heic
+*.avi
+*.aac
+*.HEIC
+ffmpeg
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
