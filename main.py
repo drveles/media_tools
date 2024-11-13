@@ -1,5 +1,6 @@
 import time
 import threading
+import multiprocessing
 from toolkit.video import ProcessVideo
 from toolkit.photo import ProcessPhoto
 from toolkit.audio import ProcessAudio
@@ -38,6 +39,18 @@ def multitreading_main():
     photo_thread.join()
 
 
+def multiprocessing_main():
+    video_thread = multiprocessing.Process(target=video_process)
+    audio_thread = multiprocessing.Process(target=audio_process)
+    photo_thread = multiprocessing.Process(target=photo_process)
+    video_thread.start()
+    audio_thread.start()
+    photo_thread.start()
+    video_thread.join()
+    audio_thread.join()
+    photo_thread.join()
+
+
 def main():
     video_process()
     audio_process()
@@ -46,5 +59,5 @@ def main():
 
 if __name__ == "__main__":
     temp_time = time.time()
-    multitreading_main()
+    multiprocessing_main()
     print("time taken in seconds:", round(time.time() - temp_time, 2))
